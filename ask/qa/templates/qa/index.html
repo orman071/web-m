@@ -1,0 +1,21 @@
+<h3>Hello, {{ user }}</h3>
+
+{% for object in page.object_list %}
+
+<a href="{{ object.get_absolute_url }}"><h2>{{ object.title }}</h2></a>
+
+{% endfor %}
+
+<nav>
+    <ul class="pagination">
+        {% for p in paginator.page_range %}
+            {% if p == page.number %}
+                <li class="active">
+            {% else %}
+                <li>
+            {% endif %}
+            <a href="?page={{ p }}">{{ p }}</a>
+            </li>
+        {% endfor %}
+    </ul>
+</nav>
